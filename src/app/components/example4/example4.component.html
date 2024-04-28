@@ -1,0 +1,19 @@
+<hr>
+<h2>2 Drop Down filtered connected with rxjs and pipe Highlight &  ReactiveForms</h2>
+  <div>
+    <div class="dropdown">
+      <input type="text" [formControl]="brandDropdown" class="dropbtn" placeholder="Enter Brand name">
+      <div class="dropdown-content" *ngIf="brandFiltered$ | async as brands">
+        <span *ngFor="let brand of brands" (click)="updateState(brand)" [innerHtml]="brand.description | strToHighlight: (brandDropdown.value || '' )"></span>
+      </div>
+    </div>
+  </div>
+<div>
+  <div class="dropdown">
+    <input type="text" class="dropbtn" placeholder="Enter your car"  [formControl]="carControl">
+    <div class="dropdown-content">
+      <span *ngFor="let s of (cars$ | async)" (click)="carControl.setValue(s.description)"  [innerHTML]="s.description | strToHighlight: (carControl.value || '')"></span>
+    </div>
+  </div>
+</div>
+

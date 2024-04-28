@@ -1,0 +1,25 @@
+<hr>
+<h2>2 Drop Down connected with rxjs &  ReactiveForms </h2>
+<div *ngIf="brands$ | async as brands">
+  <div>Select one of {{brands.length}} :</div>
+  <select [formControl]="brandDropdown">
+    <option *ngFor="let bran of brands" [value]="bran.id">
+      {{bran.description}}
+    </option>
+  </select>
+  <div>Current value: {{brandDropdown.value}}</div>
+</div>
+<ng-container *ngIf="car$ | async as cars ">
+  <ng-container *ngIf="cars.length > 0 ">
+    <div>
+      <div>Select one of 0 s: {{cars.length}}</div>
+
+      <select  [formControl]="carDropdown">
+        <option *ngFor="let car of cars" [value]="car.id">
+          {{car.description}}
+        </option>s
+      </select>
+      <div>Current value: {{carDropdown.value}}</div>
+    </div>
+  </ng-container>
+</ng-container>

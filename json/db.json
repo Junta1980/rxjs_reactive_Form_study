@@ -1,0 +1,49 @@
+{
+  "brand": [
+    {
+      "description": "Alfa",
+      "id": "1"
+    },
+    {
+      "description": "Fiat",
+      "id": "2"
+    },
+    {
+      "description": "Mercedes",
+      "id": "3"
+    }
+  ],
+  "car": [
+    {
+      "description": "Punto",
+      "id": "2"
+    },
+    {
+      "description": "500",
+      "id": "2"
+    },
+    {
+      "description": "500xl",
+      "id": "2"
+    },
+    {
+      "description": "Giulietta",
+      "id": "1"
+    },
+    {
+      "description": "Stelvio",
+      "id": "1"
+    },
+    {
+      "description": "Mito",
+      "id": "1"
+    }, {
+      "description": "Clase A",
+      "id": "3"
+    },
+    {
+      "description": "Clase A sport",
+      "id": "3"
+    }
+  ]
+}
