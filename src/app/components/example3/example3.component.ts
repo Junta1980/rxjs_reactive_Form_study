@@ -12,7 +12,7 @@ import { Brand } from 'src/app/model/generic'
 export class Example3Component {
 
   brands$: Observable<Brand[]> = this.dataService.getBrands();
-  brandDropdown = new FormControl(null);
+  brandDropdown = new FormControl('');
   brandFiltered$: Observable<Brand[]> = of([]);
   cars$: Observable<Brand[]> = of([]);
 
@@ -25,7 +25,8 @@ export class Example3Component {
       );
     }
 
-  updateState(id: string) {
-    this.cars$ = this.dataService.getCarsFor(id);
+  updateState(brand: Brand) {
+    this.brandDropdown.setValue(brand.description);
+    this.cars$ = this.dataService.getCarsFor(brand.id);
   }
 }
