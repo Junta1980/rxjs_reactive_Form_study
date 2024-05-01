@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable, map, of, withLatestFrom} from 'rxjs';
+import {Observable, Subject, map, of, switchMap, withLatestFrom} from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
-import { Brand } from 'src/app/model/generic'
+import { Brand, Car } from 'src/app/model/generic.type'
 
 @Component({
   selector: 'app-example3',
@@ -12,21 +12,22 @@ import { Brand } from 'src/app/model/generic'
 export class Example3Component {
 
   brands$: Observable<Brand[]> = this.dataService.getBrands();
-  brandDropdown = new FormControl('');
   brandFiltered$: Observable<Brand[]> = of([]);
-  cars$: Observable<Brand[]> = of([]);
+  cars$: Observable<Car[]> = of([]);
+  brand?: Brand;
+  car?: Car;
+  currentBrand$ = new Subject<Brand['id']>();
 
   constructor(private dataService: DataService ) { }
 
   ngOnInit(): void {
-    this.brandFiltered$ = this.brandDropdown.valueChanges.pipe(
-        withLatestFrom(this.brands$),
-        map(([input, brands]) => brands.filter(el => el.description.toLocaleLowerCase().indexOf((input ?? "").toLocaleLowerCase()) != -1)),
-      );
-    }
+    this.cars$ = this.currentBrand$.asObservable().pipe(
+      switchMap(id => this.dataService.getCarsFor(id))
+    );
+  }
 
   updateState(brand: Brand) {
-    this.brandDropdown.setValue(brand.description);
-    this.cars$ = this.dataService.getCarsFor(brand.id);
+    this.brand = brand;
+    this.currentBrand$.next(brand.id)
   }
 }

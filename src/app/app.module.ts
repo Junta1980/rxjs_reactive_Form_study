@@ -9,6 +9,7 @@ import { Example4Component } from './components/example4/example4.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HighlightPipe } from './components/share/highlight.pipe';
+import { DropdownComponent } from './components/example3/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HighlightPipe } from './components/share/highlight.pipe';
     Example2Component,
     Example3Component,
     Example4Component,
-    HighlightPipe
+    HighlightPipe,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,

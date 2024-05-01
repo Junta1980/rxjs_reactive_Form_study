@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, of, switchMap } from 'rxjs';
-import { Brand, Car } from 'src/app/model/generic';
+import { Brand, Car } from 'src/app/model/generic.type';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({

@@ -3,7 +3,7 @@ import {Observable, Subject, combineLatest, of} from 'rxjs';
 import {FormControl} from '@angular/forms';
 import {combineLatestWith, map, switchMap, tap, withLatestFrom} from 'rxjs/operators';
 import { DataService } from 'src/app/services/data.service';
-import { Brand, Car } from 'src/app/model/generic';
+import { Brand, Car } from 'src/app/model/generic.type';
 
 @Component({
   selector: 'app-example4',

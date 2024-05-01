@@ -7,19 +7,17 @@
       {{bran.description}}
     </option>
   </select>
-  <div>Current value: {{brandDropdown.value}}</div>
+  <div>Current value id: {{brandDropdown.value}}</div>
 </div>
 <ng-container *ngIf="car$ | async as cars ">
   <ng-container *ngIf="cars.length > 0 ">
     <div>
-      <div>Select one of 0 s: {{cars.length}}</div>
-
       <select  [formControl]="carDropdown">
         <option *ngFor="let car of cars" [value]="car.id">
           {{car.description}}
         </option>s
       </select>
-      <div>Current value: {{carDropdown.value}}</div>
+      <div>Current value id: {{carDropdown.value}}</div>
     </div>
   </ng-container>
 </ng-container>

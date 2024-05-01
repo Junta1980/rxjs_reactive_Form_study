@@ -1,0 +1,10 @@
+<div class="dropdown">
+  <input type="text" class="dropbtn" [formControl]="control"
+         placeholder="Enter your state">
+  <div class="dropdown-content" *ngIf="(entriesFiltered$ | async) || (entries$ | async) as entries">
+    <span *ngFor="let s of entries" (click)="onSelect(s)"
+          [innerHTML]="s.description | titlecase | strToHighlight: control.value">
+    </span>
+  </div>
+</div>
+

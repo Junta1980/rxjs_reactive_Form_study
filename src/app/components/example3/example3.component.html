@@ -1,21 +1,11 @@
 <hr>
-<h2>2 Drop Down filtered connected with rxjs , pipe Highlight & ReactiveForms </h2>
+<h2>3 own two-way data binding + filter dropdown + pipe Highlight </h2>
 <div style="display: flex; column-gap: 25px;">
+  <div >
+    <app-dropdown [entries$]="brands$" (objChange)="updateState($event)" ></app-dropdown>
+  </div>
+  <div >
+    <app-dropdown [entries$]="cars$" [(obj)]="car" ></app-dropdown>
+  </div>
   <div>
-    <div class="dropdown">
-      <input type="text" [formControl]="brandDropdown" class="dropbtn" placeholder="Enter Brand name">
-      <div class="dropdown-content" *ngIf="brandFiltered$ | async as brands">
-        <span *ngFor="let brand of brands" (click)="updateState(brand)"
-          [innerHtml]="brand.description | strToHighlight: (brandDropdown.value || '' )"></span>
-      </div>
-    </div>
-  </div>
-  <div *ngIf="cars$ | async as cars">
-    <div class="dropdown">
-      <input type="text" class="dropbtn" [disabled]="cars.length == 0" placeholder="Enter your car">
-      <div class="dropdown-content">
-        <span *ngFor="let s of cars">{{s.description | titlecase}}</span>
-      </div>
-    </div>
-  </div>
 </div>

@@ -1,4 +1,4 @@
-<h2>Drop Down with async pipe &  ReactiveForms</h2>
+<h2>1 Drop Down with async pipe &  ReactiveForms</h2>
 <ng-container *ngIf="brands$ | async as brands">
   <p>number of  : {{brands.length }}</p>
   <select name="cars" id="cars"  [formControl]="myControl">
@@ -6,5 +6,5 @@
       {{c.description}}
     </option>
   </select>
-  <p>current value: {{myControl.valueChanges | async }}</p>
+  <p>Current value id: {{myControl.valueChanges | async }}</p>
 </ng-container>
