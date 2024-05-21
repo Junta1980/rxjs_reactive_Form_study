@@ -4,7 +4,7 @@
   <div>
     <div class="dropdown">
       <input type="text" [formControl]="brandDropdown" class="dropbtn" placeholder="Enter Brand name">
-      <div class="dropdown-content" *ngIf="brandFiltered$ | async as brands">
+      <div class="dropdown-content" *ngIf="(brandFiltered$ | async) || (brands$ | async)  as brands">
         <span *ngFor="let brand of brands" (click)="updateState(brand)"
           [innerHtml]="brand.description | strToHighlight: (brandDropdown.value || '' )"></span>
       </div>

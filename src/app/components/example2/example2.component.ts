@@ -20,7 +20,7 @@ export class Example2Component {
   ngOnInit(): void {
     this.car$ = this.brandDropdown.valueChanges.pipe(
         switchMap( Id => {
-          return this.dataService.getCarsFor(Id ?? '')
+          return this.dataService.getCarsFor(Id || '')
         })
       )
     }
